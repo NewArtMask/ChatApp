@@ -4,16 +4,13 @@ import { ReactNode, createContext, useEffect, useState } from 'react';
 import { checkIfWalletConnected, connectWallet, connectingWithContract, convertTime } from '../Utils/apiFeatures';
 import { useRouter } from 'next/navigation';
 
-export interface IChatAppContextProps {
-}
-
 const defaultRpcContext = {
     // async doRpcCall() {
     //     return new Promise(() => null); // never complete by default
     // },
 
     readMessage: (friendAddress: string) => { },
-    createAccount: ({ name, accountAddress }: { name: string, accountAddress: string }) => { },
+    createAccount: ({ name }: { name: string }) => { },
     addFriends: ({ name, accountAddress }: { name: string, accountAddress: string }) => { },
     sendMessage: ({ msg, address }: { msg: string, address: string }) => { },
     readUser: (userAddress: string) => { },
@@ -47,16 +44,22 @@ export const ChatAppProvider = ({ children }: { children: ReactNode }) => {
     const fetchData = async () => {
         try {
             const contract = await connectingWithContract();
+
+            console.log("CONTRACT ", contract);
+
             const connectAccount = await connectWallet();
             setAccount(connectAccount);
             const userName = await contract!.getUsername(connectAccount);
             setUserName(userName);
             const friendList = await contract!.getMyFriendList();
+
+            console.log("FRIEND LIST ", friendList) // FRIEND LIST
+
             setFriendsList(friendList);
             const userList = await contract!.getAllAppUsers();
             setUserList(userList);
         } catch (error) {
-            setError('Please install and connect your Wallet');
+            setError('Please install and connect your Wallet. ' + error);
         }
     }
 
@@ -74,13 +77,13 @@ export const ChatAppProvider = ({ children }: { children: ReactNode }) => {
         }
     }
 
-    const createAccount = async ({ name, accountAddress }: { name: string, accountAddress: string }) => {
+    const createAccount = async ({ name }: { name: string }) => {
         try {
-            if (!name || !accountAddress) {
-                setError('Name and account address cannot be empty');
+            console.log(name, " works!")
+            if (!name) {
+                setError('Name cannot be empty');
                 throw Error();
             }
-
             const contract = await connectingWithContract();
             const getCreatedUser = await contract!.createAccount(name);
             setLoading(true);

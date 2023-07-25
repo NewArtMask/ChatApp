@@ -26,9 +26,10 @@ export const connectWallet = async () => {
             method: "eth_requestAccounts",
         });
         const firstAccount = accounts[0];
-
+        console.log("ACCOUNT ", firstAccount)
         return firstAccount;
     } catch (error) {
+        console.log("!!!")
         console.error(error);
     }
 }

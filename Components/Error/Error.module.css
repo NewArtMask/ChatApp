@@ -1,0 +1,10 @@
+.Error {
+    position: fixed;
+    inset: 30% 30% auto 30%;
+    margin: 0 auto;
+    z-index: 777;
+    background-color: #710303;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 2rem;
+}

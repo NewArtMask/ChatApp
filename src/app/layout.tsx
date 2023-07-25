@@ -1,7 +1,9 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google';
 import { ChatAppProvider } from '../../Context/ChatAppContext';
+import { NavBar } from '../../Components';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,9 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ChatAppProvider>
-          {children}
-        </ChatAppProvider>
+        <main>
+          <ChatAppProvider>
+            <NavBar />
+            {children}
+          </ChatAppProvider>
+        </main>
       </body>
     </html>
   );

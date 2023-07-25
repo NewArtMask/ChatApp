@@ -1,0 +1,52 @@
+.UserCard {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: .5rem;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.UserCard_box {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    place-items: center;
+}
+
+.UserCard_box_img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & .img {
+        width: 100%;
+        height: 100%;
+        transform: scale(1.3);
+        object-fit: cover;
+    }
+}
+
+.UserCard_box_info {
+    width: 100%;
+}
+
+.UserCard_box_info button {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #F18303;
+    border-radius: .5rem;
+    width: 50%;
+    font-size: 1rem;
+}
+
+.UserCard_box_info h3 {
+    font-size: x-large;
+}
+
+.number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: .4rem .8rem;
+    border-radius: 50%;
+    background-color: #F18303;
+}
