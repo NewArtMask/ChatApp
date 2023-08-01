@@ -108,21 +108,20 @@
         .Model_box {
             grid-template-columns: 1fr;
         }
-    }
 
-    .Model_box_right h1 {
-        font-size: 1rem;
-        line-height: 1.2rem;
-    }
+        .Model_box_right h1 {
+            font-size: 1rem;
+        }
 
-    .Model_box_right h1 span {
-        font-size: 2.5rem;
-    }
+        .Model_box_right h1 span {
+            font-size: 2.5rem;
+        }
 
-    .Model_box_right_name_btn {
-        display: grid;
-        grid-template-columns: 1fr;
-        z-index: 333;
+        .Model_box_right_name_btn {
+            display: grid;
+            grid-template-columns: 1fr;
+            z-index: 333;
+        }
     }
 }
 

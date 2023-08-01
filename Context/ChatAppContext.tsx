@@ -85,6 +85,7 @@ export const ChatAppProvider = ({ children }: { children: ReactNode }) => {
                 throw Error();
             }
             const contract = await connectingWithContract();
+            console.log('CONTRACT ', contract)
             const getCreatedUser = await contract!.createAccount(name);
             setLoading(true);
             await getCreatedUser.wait();

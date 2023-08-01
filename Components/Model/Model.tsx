@@ -11,11 +11,12 @@ export interface IModelProps {
     head: string,
     info: string,
     smallInfo: string,
-    address: string,
+    address?: string,
     image: HTMLImageElement,
     openModel: React.Dispatch<React.SetStateAction<boolean>>,
-    modelFunction: ({ name }: {
+    modelFunction: ({ name, accountAddress }: {
         name: string;
+        accountAddress: string;
     }) => void
 }
 
@@ -54,7 +55,7 @@ export default function Model({ title, head, info, smallInfo, image, address, op
                             ></Image>
                             <input
                                 type="text"
-                                placeholder="your name"
+                                placeholder="account name"
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </div>
@@ -67,13 +68,13 @@ export default function Model({ title, head, info, smallInfo, image, address, op
                             ></Image>
                             <input
                                 type="text"
-                                placeholder={address || "your account address"}
+                                placeholder={address || "account address"}
                                 onChange={(e) => setAccountAddress(e.target.value)}
                             />
                         </div>
 
                         <div className={Style.Model_box_right_name_btn}>
-                            <button onClick={() => modelFunction({ name })}>
+                            <button onClick={() => modelFunction({ name, accountAddress })}>
                                 <Image
                                     className={`img ${Style.send}`}
                                     src={images.send}

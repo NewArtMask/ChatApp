@@ -49,7 +49,7 @@ export default function NavBar(props: INavBarProps) {
             <div className={Style.NavBar_box}>
                 <div className={Style.NavBar_box_left}>
                     <a href="/">
-                        <Image className={`img ${Style.logo}`} src={images.logo} alt="logo"></Image>
+                        <Image className={`img ${Style.logo}`} src={images.appLogo} alt="logo"></Image>
                     </a>
                 </div>
                 <div className={Style.NavBar_box_right}>

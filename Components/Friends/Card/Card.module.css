@@ -1,0 +1,53 @@
+.Card_box {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    padding: 1rem 0;
+    border-bottom: 1px solid #F1820342;
+
+    .Card_box_right {
+        display: flex;
+        gap: 3rem;
+    }
+
+    .Card_box_right_end {
+        position: absolute;
+        right: 0;
+        top: .7rem;
+    }
+
+    .Card_box_left_img {
+        border-radius: 50%;
+    }
+}
+
+@media only screen and (max-width: 74em) {
+    .Card_box {
+        width: 300px;
+        gap: 1;
+    }
+}
+
+
+@media only screen and (max-width: 35em) {
+    .Card_box {
+        gap: 1rem;
+
+        .Card_box_left_img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+@media only screen and (max-width: 18em) {
+    .Card {
+        padding-right: 0;
+    }
+
+    .Card_box {
+        width: 100%;
+        gap: .5rem;
+    }
+}
